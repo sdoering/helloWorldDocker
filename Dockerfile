@@ -17,4 +17,4 @@ EXPOSE 8080
 #   CMD curl -f http://localhost/up || exit 1
 
 # Use Gunicorn instead of Flask development server
-CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
