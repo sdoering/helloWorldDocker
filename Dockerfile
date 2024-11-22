@@ -9,11 +9,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     pip install flask gunicorn
 
-EXPOSE 8080
+EXPOSE 80
 
 # Add health check with curl
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:8080/up || exit 1
+  CMD curl -f http://localhost/up || exit 1
 
 # Use Gunicorn instead of Flask development server
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:app"]
