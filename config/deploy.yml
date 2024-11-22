@@ -21,7 +21,7 @@ proxy:
   ssl: true
   host: vml.one
   # Proxy connects to your container on port 80 by default.
-  # app_port: 3000
+  app_port: 8080
 
 # Credentials for your image host.
   # Specify the registry server, if you're not using Docker Hub

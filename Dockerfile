@@ -9,7 +9,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     pip install flask gunicorn
 
-EXPOSE 80
+EXPOSE 8080
 
 # Add health check with curl
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
