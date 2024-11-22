@@ -2,10 +2,16 @@
 FROM python:3.9-slim
 WORKDIR /app
 COPY . .
-RUN pip install flask gunicorn
+
+# Install curl and other dependencies
+RUN apt-get update && \
+    apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/* && \
+    pip install flask gunicorn
+
 EXPOSE 8080
 
-# Add health check
+# Add health check with curl
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD curl -f http://localhost:8080/up || exit 1
 
